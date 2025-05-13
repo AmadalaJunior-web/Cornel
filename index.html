@@ -201,4 +201,39 @@
         <p>&copy; 2025 Cornelius Wekesa. All rights reserved.</p>
     </footer>
 </body>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init("CQjcqIFkGjBjWl3QP"); // Replace YOUR_USER_ID with your actual User ID from EmailJS
+
+        // Add an event listener to the form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data to send
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_lw8scun', 'template_ddd5i68', templateParams)
+                .then(function(response) {
+                    alert('Message sent successfully!'); // Success message
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send the message. Please try again.'); // Error message
+                    console.error('FAILED...', error);
+                });
+        });
+    </script>
+    
+</html>
                                                                                                                                                                   </html>
