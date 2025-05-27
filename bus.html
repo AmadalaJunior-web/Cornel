@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Transit - Your Journey, Our Priority</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            background: #dff900;
+        }
+
+        header {
+            background: #004d99;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0066cc;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 10px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #FFD700;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .hero {
+            background: url(/Screenshot_20250514-142737_1.jpg) no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            animation: fadeIn 2s;
+        }
+                @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .service-card {
+            width: 300px;
+            padding: 20px;
+            background: #dff900;
+            box-shadow: 0px 4px 8px rgba(0,0,255,.9);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .testimonials {
+            padding: 40px;
+            background: #dFf900;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0,0,255,.9);
+            width:85%;
+            margin-left: 23px;
+        }
+
+        .booking-form {
+            background: transparent;
+            padding: 40px;
+            text-align: center;
+            
+        }
+        .booking-form input {
+            width:90%;
+            background: transparent;
+            border: 1px solid #ccc;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            background: transparent;
+        }
+
+        button {
+            background: #004d99;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0066cc;
+        }
+
+        footer {
+            background: #004d99;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Swift Transit</h1>
+        <p>Your Journey, Our Priority</p>
+    </header>
+
+    <nav>
+        <a href="#Home">Home</a>
+        <a href="#services">Our Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#bookTrip">Book Trip</a>
+    </nav>
+
+    <div class="hero" id="Home">
+        Reliable Transport, Wherever You Go
+    </div>
+
+    <section class="services" id="services">
+        <div class="service-card">
+            <i class="fa-solid fa-bus fa-3x"></i>
+            <h3>Comfortable Travel</h3>
+            <p>Modern, air-conditioned buses for ultimate comfort.</p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-map-marker-alt fa-3x"></i>
+            <h3>Citywide Routes</h3>
+            <p>Covering all major locations with convenient stops.</p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-clock fa-3x"></i>
+            <h3>On-Time Service</h3>
+            <p>Punctual arrivals and departures to keep you on schedule.</p>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2>What Our Passengers Say</h2>
+        <p>"Swift Transit is always on time and super comfortable!" - Jane Doe</p>
+        <p>"The best transport service I've ever used!" - Michael Smith</p>
+    </section>
+    <section>
+        <h2>
+          Book your trip  <!--Tab to edit-->
+        </h2>
+    <form class="booking-form" id="contactForm" method="get">
+        <input type="text" placeholder="Your Name" required id="name">
+        <input type="email" placeholder="Your Email" required id="email">
+        <textarea  id=message placeholder="place"></textarea>
+        <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Swift Transit - All Rights Reserved</p>
+    </footer>
+
+    <!--<script>
+        function bookTrip() {
+            alert("Thank you for booking with us! We’ll send your confirmation soon.");
+        }<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    </script>-->
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init("CQjcqIFkGjBjWl3QP"); // Replace YOUR_USER_ID with your actual User ID from EmailJS
+
+        // Add an event listener to the form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data to send
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_lw8scun', 'template_ddd5i68', templateParams)
+                .then(function(response) {
+                    alert('Message sent successfully!'); // Success message
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send the message. Please try again.'); // Error message
+                    console.error('FAILED...', error);
+                });
+        });
+    </script>
+
+
+</body>
+</html>

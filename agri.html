@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Harvest Agriculture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightseagreen;
+            color: #333;
+        }
+
+        header {
+            background: lightseagreen;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #2E8B57;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 10px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #FFD700;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .hero {
+            background: url(/ABITECH/Screenshot_20250514-155551_1.jpg) no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 3s;
+        }
+        @keyframes fadeIn{
+            from{opacity:0;}
+            to{opacity: 1;}
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .service-card {
+            color: whitesmoke;
+            width: 300px;
+            padding: 20px;
+            background: lightseagreen;
+            box-shadow: 0px 4px 8px rgba(0,0,255,.9);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .testimonials {
+            color: whitesmoke;
+            padding: 40px;
+            background: lightseagreen;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0,0,255,.9);
+            width:85%;
+            margin-left: 23px;
+        }
+
+        .contact-form {
+            background: transparent;
+            padding: 40px;
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            background: transparent;
+        }
+
+
+        button {
+            background: #228B22;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2E8B57;
+        }
+
+        footer {
+            background: #228B22;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Green Harvest Agriculture</h2>
+        <p>Growing a Sustainable Future</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Our Services</a>
+        <a href="#testimony">Testimonials</a>
+        <a href="#comtact">Contact</a>
+    </nav>
+
+    <div class="hero" id="home">
+        Cultivating Excellence in Farming
+    </div>
+
+    <section class="services" id="services">
+        <div class="service-card">
+            <i class="fa-solid fa-seedling fa-3x"></i>
+            <h3>Organic Farming</h3>
+            <p>Providing eco-friendly farming solutions.</p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-tractor fa-3x"></i>
+            <h3>Modern Equipment</h3>
+            <p>Innovative technology for higher yields.</p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-leaf fa-3x"></i>
+            <h3>Environmental Sustainability</h3>
+            <p>Helping farmers adopt sustainable practices.</p>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimony">
+        <h2>What Our Farmers Say</h2>
+        <p>"Green Harvest changed the way we farm, making it more sustainable!" - John Doe</p>
+        <p>"Their modern equipment has boosted our productivity by 50%!" - Sarah Smith</p>
+    </section>
+
+    <section class="contact-form" id="contact">
+        <form id="contactForm" method="get">
+        <h2>Contact Us</h2>
+        <input type="text" placeholder="Your Name" id="name" required>
+        <input type="email" placeholder="Your Email" id="email" required>
+        <textarea placeholder="Your Message" id="message" required></textarea>
+        <button>Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Green Harvest Agriculture - All Rights Reserved</p>
+    </footer>
+
+    <!--<script>
+        function sendMessage() {
+            alert("Thank you for reaching out! We'll get back to you soon.");
+        }
+    </script>-->
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init("CQjcqIFkGjBjWl3QP"); // Replace YOUR_USER_ID with your actual User ID from EmailJS
+
+        // Add an event listener to the form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data to send
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_lw8scun', 'template_ddd5i68', templateParams)
+                .then(function(response) {
+                    alert('Message sent successfully!'); // Success message
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send the message. Please try again.'); // Error message
+                    console.error('FAILED...', error);
+                });
+        });
+    </script>
+
+
+</body>
+</html>
