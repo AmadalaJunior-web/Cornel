@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Cornelius Wekesa</title>
+<style>
+  /* same theme variables */
+  :root{--accent:#b8ff6f;--muted:#dcdcdc}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--muted);
+    background:linear-gradient(120deg,#06121b,#051727 60%, #062a20);min-height:100vh;background-size:400% 400%;animation:bgShift 18s infinite}
+  @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  header{position:fixed;left:0;right:0;top:0;height:72px;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;z-index:999;background:linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.18))}
+  .brand{color:var(--accent);font-weight:700}
+  nav ul{display:flex;gap:14px;list-style:none}
+  nav a{color:var(--muted);text-decoration:none}
+  main{padding-top:96px}
+  .container{max-width:980px;margin:0 auto;padding:36px}
+  .card{background:rgba(255,255,255,0.03);padding:24px;border-radius:12px}
+  .two-col{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start}
+  .portrait{width:320px;border-radius:12px;overflow:hidden}
+  .portrait img{width:100%;height:auto;display:block}
+  h1{color:var(--accent);margin:0 0 12px}
+  ul{margin-top:12px}
+  li{margin-bottom:8px}
+  footer{text-align:center;padding:32px;color:#9dbfa8;margin-top:28px}
+  /* responsive */
+  @media(max-width:880px){.two-col{grid-template-columns:1fr} .portrait{width:100%}}
+  section{opacity:0;transform:translateY(24px);transition:all .7s}
+  section.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Cornelius</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <section class="card">
+      <div class="two-col">
+        <div class="portrait">
+          <img src="https://via.placeholder.com/640x640.png?text=Cornelius+Photo" alt="Cornelius portrait">
+        </div>
+        <div>
+          <h1>About Me</h1>
+          <p style="color:#e6efe2">I’m <strong>Cornelius Wekesa Barasa</strong>, a full-stack developer focused on building scalable web applications with pleasant user experiences. I enjoy turning complex problems into simple, beautiful and intuitive designs.</p>
+
+          <h3 style="color:var(--accent)">Background & Journey</h3>
+          <p>My journey began with curiosity: tinkering with HTML and small scripts led to full projects for friends and local businesses. Over time I learned frameworks such as ReactJS and Django backends, connecting them with databases and payment systems.</p>
+
+          <h3 style="color:var(--accent)">What I build</h3>
+          <ul>
+            <li>Responsive web apps & dashboards</li>
+            <li>E-commerce platforms & payment integrations (M-Pesa)</li>
+            <li>Learning platforms & content portals</li>
+            <li>Tooling & small utilities (calculators, data visualizers)</li>
+          </ul>
+
+          <h3 style="color:var(--accent)">Interests & Values</h3>
+          <p>I mentor junior developers, contribute to open source where possible, and value readable code, good design, and accessibility.</p>
+
+          <p style="margin-top:12px"><strong>Languages:</strong> English, Kiswahili</p>
+          <p><strong>Freelance:</strong> Available • <strong>Timezone:</strong> EAT (Nairobi)</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>© 2025 Cornelius Wekesa Barasa — Built with care</footer>
+
+<script>
+  const s = document.querySelector('section');
+  const reveal = ()=>{ if(s.getBoundingClientRect().top < window.innerHeight*0.9) s.classList.add('show')};
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
+</script>
+</body>
+</html>

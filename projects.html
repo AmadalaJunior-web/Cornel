@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Projects — Cornelius</title>
+<style>
+  :root{--accent:#b8ff6f;--muted:#dcdcdc}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--muted);
+    background:linear-gradient(120deg,#08121b,#04202a);min-height:100vh;background-size:400% 400%;animation:bgShift 18s infinite}
+  @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  header{position:fixed;left:0;right:0;top:0;height:72px;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;z-index:999;background:linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.18))}
+  .brand{color:var(--accent);font-weight:700}
+  nav ul{display:flex;gap:14px;list-style:none}
+  main{padding-top:96px}
+  .container{max-width:1100px;margin:0 auto;padding:36px}
+  h1{color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .proj{background:rgba(255,255,255,0.03);padding:16px;border-radius:10px;transition:transform .22s;overflow:hidden}
+  .proj:hover{transform:translateY(-8px)}
+  .proj img{width:100%;height:170px;object-fit:cover;border-radius:8px}
+  .tech{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.25);font-weight:600}
+  footer{text-align:center;padding:24px;color:#9dbfa8;margin-top:28px}
+  section{opacity:0;transform:translateY(24px);transition:all .7s}
+  section.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Cornelius</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <section>
+      <h1>Selected Projects</h1>
+      <p style="color:#e6efe2">A curated list of projects — each entry includes a short summary, tech stack and links (demo / source).</p>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="proj">
+          <img src="https://via.placeholder.com/800x400.png?text=InvestWorld" alt="">
+          <h3>InvestWorld — Investment Platform</h3>
+          <p>Multi-tenant investment dashboard with referral program, wallet, STK Push integration and admin panel for managing investments and transactions.</p>
+          <div class="tech"><span class="chip">React</span><span class="chip">Django</span><span class="chip">MySQL</span><span class="chip">M-Pesa</span></div>
+          <div style="margin-top:10px"><a href="#" style="color:var(--accent)">Live demo</a> • <a href="#" style="color:#cfe7d3">Source</a></div>
+        </article>
+
+        <article class="proj">
+          <img src="https://via.placeholder.com/800x400.png?text=E-commerce" alt="">
+          <h3>E-commerce Platform</h3>
+          <p>Marketplace with seller & buyer dashboards, payments and responsive product listings. Focus on conversion and speed.</p>
+          <div class="tech"><span class="chip">Django</span><span class="chip">Stripe</span><span class="chip">Bootstrap</span></div>
+        </article>
+
+        <article class="proj">
+          <img src="https://via.placeholder.com/800x400.png?text=Forex+Hub" alt="">
+          <h3>Forex Learning Hub</h3>
+          <p>Structured lessons, embedded videos, quizzes and downloadable transcripts in Kiswahili and English for learners.</p>
+          <div class="tech"><span class="chip">React</span><span class="chip">Node</span><span class="chip">YouTube API</span></div>
+        </article>
+
+        <article class="proj">
+          <img src="https://via.placeholder.com/800x400.png?text=Calculator" alt="">
+          <h3>Calculator Web App</h3>
+          <p>Simple, reliable calculator tool with history and keyboard support — great for teaching DOM & event handling.</p>
+          <div class="tech"><span class="chip">Vanilla JS</span><span class="chip">HTML/CSS</span></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>© 2025 Cornelius Wekesa — Projects</footer>
+
+<script>
+  const s = document.querySelector('section');
+  const reveal = ()=>{ if(s.getBoundingClientRect().top < window.innerHeight*0.9) s.classList.add('show')};
+  window.addEventListener('load', reveal);
+  window.addEventListener('scroll', reveal);
+</script>
+</body>
+</html>
